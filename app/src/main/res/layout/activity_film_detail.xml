@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FilmDetailActivity">
+
+    <TextView
+        android:id="@+id/film_detail_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello world"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/film_detail_genre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello world" />
+
+    <ImageView
+        android:id="@+id/film_detail_image"
+        android:layout_width="196dp"
+        android:layout_height="142dp"
+        android:layout_margin="5dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/film_detail_discription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello world" />
+
+    <TextView
+        android:id="@+id/film_detail_releasedate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:text="Hello world" />
+
+
+    <TextView
+        android:id="@+id/film_detail_runtime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Hello world" />
+
+    <TextView
+        android:id="@+id/film_detail_review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Hello world" />
+
+
+    <Button
+        android:id="@+id/shareButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Share"
+        android:textSize="18dp" />
+
+</LinearLayout>

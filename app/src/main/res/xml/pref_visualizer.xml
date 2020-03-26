@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <CheckBoxPreference
+        android:defaultValue="true"
+        app:key="Vodka"
+        android:summaryOff="Hidden"
+        android:summaryOn="Shown"
+        android:title="Vodka"
+        />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        app:key="Lemonade"
+        android:summaryOff="Hidden"
+        android:summaryOn="Shown"
+        android:title="Lemonade"
+        />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        app:key="Dark Rum"
+        android:summaryOff="Hidden"
+        android:summaryOn="Shown"
+        android:title="Dark Rum"
+        />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        app:key="Gin"
+        android:summaryOff="Hidden"
+        android:summaryOn="Shown"
+        android:title="Gin"
+        />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        app:key="Lemon Juice"
+        android:summaryOff="Hidden"
+        android:summaryOn="Shown"
+        android:title="Lemon Juice"
+        />
+</PreferenceScreen>
