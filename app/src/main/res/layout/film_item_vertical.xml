@@ -7,13 +7,14 @@
 
     <ImageView
         android:id="@+id/film_item_imageview"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="42dp"
+        android:layout_height="59dp"
         android:layout_margin="12dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:contentDescription="@string/picture"
+        />
 
     <LinearLayout
-        android:layout_width="234dp"
+        android:layout_width="313dp"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:orientation="vertical">
@@ -24,21 +25,13 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="bold"
-            tools:text="@tools:sample/date/ddmmyy" />
+           />
 
         <TextView
-            android:id="@+id/film_item_genre"
+            android:id="@+id/film_item_releaseDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            tools:text="@tools:sample/date/hhmmss" />
-
-        <TextView
-            android:id="@+id/film_item_runtime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            tools:text="@tools:sample/date/ddmmyy" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 

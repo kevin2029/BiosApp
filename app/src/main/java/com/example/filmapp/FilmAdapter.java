@@ -46,8 +46,7 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
         Log.i(TAG, "In onBindViewHolder");
         Film film = films.get(position);
         holder.title.setText(film.getmTitle());
-        holder.genre.setText(film.getmGenre());
-        holder.runtime.setText(Integer.toString(film.getmRuntime()));
+        holder.releaseDate.setText(film.getmReleaseDate());
         Picasso.get().load(film.getmPicture()).into(holder.image);
 
     }
@@ -69,17 +68,17 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
 
     public class FilmViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView title;
-        private TextView genre;
+        private TextView releaseDate;
         private ImageView image;
-        private TextView runtime;
+
 
 
         public FilmViewHolder(@NonNull final View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.film_item_title);
-            genre = itemView.findViewById(R.id.film_item_genre);
             image = itemView.findViewById(R.id.film_item_imageview);
-            runtime = itemView.findViewById(R.id.film_item_runtime);
+            releaseDate = itemView.findViewById(R.id.film_item_releaseDate);
+
 
             itemView.setOnClickListener(this);
         }
@@ -91,7 +90,7 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
             Film film = films.get(adapterPosition);
 
             Intent intent = new Intent(view.getContext(),FilmDetailActivity.class);
-//            intent.putExtra("film",film);
+            intent.putExtra("film",film);
             view.getContext().startActivity(intent);
 
         }

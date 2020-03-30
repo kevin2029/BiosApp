@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements FilmList.FilmList
     private RecyclerView mRandomFilmssRecyclerView;
 
     public static final String TAG = MainActivity.class.getSimpleName();
-    public static final String URL_FILM_INFORMATIE = "https://api.themoviedb.org/3/movie/550?api_key=0b76c837ee95664733e2cbe4a92c6b5d";
+    public static final String URL_FILM_INFORMATIE = "https://api.themoviedb.org/3/movie/top_rated?api_key=0b76c837ee95664733e2cbe4a92c6b5d&language=en-US&page=1";
     public static final String LIFECYCLE_CALLBACKS_TEXT_KEY = "callback";
 
     @Override

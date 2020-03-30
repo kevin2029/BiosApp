@@ -48,12 +48,9 @@ public class FilmDetailActivity extends AppCompatActivity{
                 filmExtra = (Film) intent.getSerializableExtra(FilmAdapter.FILM);
 
                 mTitle.setText(filmExtra.getmTitle());
-                mGenre.setText(filmExtra.getmGenre());
                 mDiscription.setText(filmExtra.getmDiscription());
                 mReleaseDate.setText(filmExtra.getmReleaseDate());
-                mRuntime.setText(filmExtra.getmRuntime());
-                mReview.setText(filmExtra.getmReviewScore());
-                Picasso.get().load(filmExtra.getmPicture()).into(mImage);
+                //Picasso.get().load(filmExtra.getmPicture()).into(mImage);
             }
         }
     }

@@ -41,16 +41,14 @@ public class FilmList extends AsyncTask<String, Void, List<Film>> {
                 for (int i = 0; i < results.length(); i++) {
                     JSONObject jsonObject = results.getJSONObject(i);
 
-                    JSONObject jsonObjectGenre = jsonObject.getJSONObject("genres");
+
+                    String picture = "https://image.tmdb.org/t/p/w500/" + jsonObject.getString("poster_path");
 
                     Film film = new Film(
-                            jsonObject.getString("original_title"),
-                            jsonObjectGenre.getString("name"),
+                            jsonObject.getString("title"),
                             jsonObject.getString("overview"),
                             jsonObject.getString("release_date"),
-                            jsonObject.getInt("runtime"),
-                            jsonObject.getInt("vote_average"),
-                            jsonObject.getString("poster_path")
+                            picture
                     );
                     films.add(film);
                 }

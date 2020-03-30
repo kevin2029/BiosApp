@@ -1,21 +1,17 @@
 package com.example.filmapp.Domain;
 
-public class Film {
+import java.io.Serializable;
+
+public class Film implements Serializable {
     private String mTitle;
-    private String mGenre;
     private String mDiscription;
     private String mReleaseDate;
     private String mPicture;
-    private int mRuntime;
-    private int mReviewScore;
 
-    public Film(String mTitle, String mGenre, String mDiscription, String mReleaseDate, int mRuntime, int mReviewScore, String mPicture) {
+    public Film(String mTitle, String mDiscription, String mReleaseDate, String mPicture) {
         this.mTitle = mTitle;
-        this.mGenre = mGenre;
         this.mDiscription = mDiscription;
         this.mReleaseDate = mReleaseDate;
-        this.mRuntime = mRuntime;
-        this.mReviewScore = mReviewScore;
         this.mPicture = mPicture;
     }
 
@@ -23,9 +19,6 @@ public class Film {
         return mTitle;
     }
 
-    public String getmGenre() {
-        return mGenre;
-    }
 
     public String getmDiscription() {
         return mDiscription;
@@ -33,14 +26,6 @@ public class Film {
 
     public String getmReleaseDate() {
         return mReleaseDate;
-    }
-
-    public int getmRuntime() {
-        return mRuntime;
-    }
-
-    public int getmReviewScore() {
-        return mReviewScore;
     }
 
     public String getmPicture() {
@@ -51,11 +36,8 @@ public class Film {
     public String toString() {
         return "Film{" +
                 "mTitle='" + mTitle + '\'' +
-                ", mGenre='" + mGenre + '\'' +
                 ", mDiscription='" + mDiscription + '\'' +
                 ", mReleaseDate='" + mReleaseDate + '\'' +
-                ", mRuntime=" + mRuntime +
-                ", mReviewScore=" + mReviewScore +
                 '}';
     }
 }
