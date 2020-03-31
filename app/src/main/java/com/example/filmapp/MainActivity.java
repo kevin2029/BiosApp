@@ -11,13 +11,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
+import android.widget.SearchView;
 
 import com.example.filmapp.Domain.Film;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements FilmList.FilmListListener{
+public class MainActivity extends AppCompatActivity implements FilmList.FilmListListener {
     private FilmAdapter mFilmAdapter;
     private RecyclerView mRandomFilmssRecyclerView;
 
@@ -65,6 +67,22 @@ public class MainActivity extends AppCompatActivity implements FilmList.FilmList
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.visulizer_menu, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                mFilmAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
         return true;
     }
 
@@ -79,5 +97,4 @@ public class MainActivity extends AppCompatActivity implements FilmList.FilmList
         }
         return super.onOptionsItemSelected(item);
     }
-
 }
