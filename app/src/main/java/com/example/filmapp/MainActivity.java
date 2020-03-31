@@ -1,10 +1,5 @@
 package com.example.filmapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,18 +9,22 @@ import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.filmapp.Domain.Film;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements FilmList.FilmListListener {
-    private FilmAdapter mFilmAdapter;
-    private RecyclerView mRandomFilmssRecyclerView;
-
     public static final String TAG = MainActivity.class.getSimpleName();
     public static final String URL_FILM_INFORMATIE = "https://api.themoviedb.org/3/movie/top_rated?api_key=0b76c837ee95664733e2cbe4a92c6b5d&language=en-US&page=1";
     public static final String LIFECYCLE_CALLBACKS_TEXT_KEY = "callback";
+    private FilmAdapter mFilmAdapter;
+    private RecyclerView mRandomFilmssRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

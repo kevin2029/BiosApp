@@ -3,40 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <CheckBoxPreference
         android:defaultValue="true"
-        app:key="Vodka"
         android:summaryOff="Hidden"
         android:summaryOn="Shown"
-        android:title="Vodka"
-        />
+        android:title="Action"
+        app:key="Action" />
 
     <CheckBoxPreference
         android:defaultValue="true"
-        app:key="Lemonade"
         android:summaryOff="Hidden"
         android:summaryOn="Shown"
-        android:title="Lemonade"
-        />
+        android:title="Comedy"
+        app:key="Comedy" />
 
     <CheckBoxPreference
         android:defaultValue="true"
-        app:key="Dark Rum"
         android:summaryOff="Hidden"
         android:summaryOn="Shown"
-        android:title="Dark Rum"
-        />
+        android:title="Drama"
+        app:key="Drama" />
 
     <CheckBoxPreference
         android:defaultValue="true"
-        app:key="Gin"
         android:summaryOff="Hidden"
         android:summaryOn="Shown"
-        android:title="Gin"
-        />
+        android:title="Fantasy"
+        app:key="Fantasy" />
     <CheckBoxPreference
         android:defaultValue="true"
-        app:key="Lemon Juice"
         android:summaryOff="Hidden"
         android:summaryOn="Shown"
-        android:title="Lemon Juice"
-        />
+        android:title="Horror"
+        app:key="Horror" />
 </PreferenceScreen>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FilmApp</string>
+    <string name="Settings">Instellingen</string>
+    <string name="picture">Foto</string>
+    <string name="search">Zoeken</string>
+    <string name="share">Delen</string>
+</resources>

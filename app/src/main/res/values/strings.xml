@@ -2,5 +2,6 @@
     <string name="app_name">FilmApp</string>
     <string name="Settings">settings</string>
     <string name="picture">picture</string>
-    <string name="search" >Search</string>
+    <string name="search">Search</string>
+    <string name="share">Share</string>
 </resources>

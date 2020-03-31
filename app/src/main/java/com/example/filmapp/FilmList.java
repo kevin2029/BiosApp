@@ -10,11 +10,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.security.PrivateKey;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class FilmList extends AsyncTask<String, Void, List<Film>> {
     private static final String TAG = FilmList.class.getSimpleName();
@@ -65,13 +62,14 @@ public class FilmList extends AsyncTask<String, Void, List<Film>> {
     protected void onPreExecute() {
         Log.i(TAG, "In onPreExecute");
     }
+
     @Override
     protected void onPostExecute(List<Film> films) {
         Log.i(TAG, "In onPostExecute");
         filmListListener.processResult(films);
     }
 
-    public interface FilmListListener{
+    public interface FilmListListener {
         void processResult(List<Film> films);
     }
 }
