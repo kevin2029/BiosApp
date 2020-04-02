@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class TmdbKrijgLijst extends AsyncTask <String, String, ArrayList<FLijstInfo>> {
+public class TmdbKrijgLijst extends AsyncTask <String, String, ArrayList<ExtraInfo>> {
     private final String TAG = TmdbKrijgLijst.class.getSimpleName();
     private Listner ListListner;
 
@@ -21,8 +21,8 @@ public class TmdbKrijgLijst extends AsyncTask <String, String, ArrayList<FLijstI
     }
 
 
-    protected ArrayList<FLijstInfo> doInBackground(String... strings) {
-        ArrayList<FLijstInfo> temp = new ArrayList<>();
+    protected ArrayList<ExtraInfo> doInBackground(String... strings) {
+        ArrayList<ExtraInfo> temp = new ArrayList<>();
 
         try {
             String JsonAntwoord = NetworkUtils.doSendRequestToAPI("https://api.themoviedb.org/3/account/" + NetworkUtils.Ac_ID + "/lists?api_key=" + NetworkUtils.API_Key + "&session_id=" + NetworkUtils.Session_ID + "&page=1","GET");
@@ -32,8 +32,6 @@ public class TmdbKrijgLijst extends AsyncTask <String, String, ArrayList<FLijstI
 
 
             for (int i = 0; i <FilmLijsten.length(); i++){
-
-
                 JSONObject HuidigeLijstJSON = FilmLijsten.getJSONObject(i);
                 int iLijstId = HuidigeLijstJSON.getInt("id");
                 String ILijstNaam = HuidigeLijstJSON.getString("name");
@@ -47,13 +45,11 @@ public class TmdbKrijgLijst extends AsyncTask <String, String, ArrayList<FLijstI
         return temp;
     }
 
-
+    @Override
     protected void onPostExecute(ArrayList<ExtraInfo> LijstX) {
-        onPostExecute(LijstX);
+        super.onPostExecute(LijstX);
         ListListner.processResult(LijstX);
     }
-
-
 
     public interface Listner {
         void processResult(ArrayList<ExtraInfo> movieLists);

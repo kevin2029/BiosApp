@@ -23,32 +23,29 @@ import com.example.filmapp.Domain.Film;
 import com.example.filmapp.TMDBCommands.opvragen.TmdbKrijgLijst;
 import com.example.filmapp.TMDBCommands.toevoegen.TmdbVoegFilmToeAanLijst;
 import com.example.filmapp.utils.GetListIdTask;
-import com.example.filmapp.utils.ListTask;
-import com.example.filmapp.utils.NetworkUtils;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class FilmDetailActivity extends AppCompatActivity implements ListTask.FilmListListener, GetListIdTask.FilmListListener, TmdbKrijgLijst.Listner {
+public class FilmDetailActivity extends AppCompatActivity implements View.OnClickListener,GetListIdTask.FilmListListener,TmdbKrijgLijst.Listner{
     private TextView mTitle;
-    private TextView mGenre;
     private ImageView mImage;
     private TextView mDiscription;
     private TextView mReleaseDate;
-    private TextView mRuntime;
     private TextView mReview;
     private Film filmExtra;
-    private Button mShareButton;
     private List<Integer> ids;
     private Button mAddto;
-    private Film mFilm;
-    private ArrayList<ExtraInfo> TempList;
-    private ArrayList<String> Array2;
+    private ArrayList<FLijstInfo> TempList;
     private ListView mLijsten;
-    private Dialog PopUpExtra;
 
+    private Dialog PopUpExtra;
+    private ArrayList<String> mAddToListArrayNames;
+    private ArrayList<ExtraInfo> mAddToListArray;
+    private ListView mChooseList;
+    private TextView mClosePopup;
 
 
     public static final String TAG = FilmDetailActivity.class.getSimpleName();
@@ -99,13 +96,10 @@ public class FilmDetailActivity extends AppCompatActivity implements ListTask.Fi
 
             });
 
-            mAddto.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showpopup(v);
+            mAddto.setOnClickListener(this);
 
-                }
-            });
+            PopUpExtra = new Dialog(this);
+            mAddToListArrayNames = new ArrayList<>();
 
 
 
@@ -116,11 +110,6 @@ public class FilmDetailActivity extends AppCompatActivity implements ListTask.Fi
     public void processResultInts(List<Integer> strings) {
         ids = strings;
         System.out.println(strings);
-    }
-
-    @Override
-    public void processResult(List<String> strings) {
-
     }
 
     @Override
@@ -156,7 +145,7 @@ public class FilmDetailActivity extends AppCompatActivity implements ListTask.Fi
     public void showpopup(View v){
         PopUpExtra.setContentView(R.layout.voeg_film_toe_popup);
         mLijsten = PopUpExtra.findViewById(R.id.Kies_Lijst);
-
+        mClosePopup = (TextView) PopUpExtra.findViewById(R.id.tv_close_popup);
 
         TmdbKrijgLijst krijglijst = new TmdbKrijgLijst(this);
         krijglijst.execute();
@@ -165,28 +154,39 @@ public class FilmDetailActivity extends AppCompatActivity implements ListTask.Fi
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TmdbVoegFilmToeAanLijst VoegToe= new TmdbVoegFilmToeAanLijst();
-                ExtraInfo TakeList = TempList.get(position);
-                VoegToe.execute(TakeList.getmLijstId(), Integer.toString(mFilm.getmId()));
+                ExtraInfo TakeList = mAddToListArray.get(position);
+                VoegToe.execute(TakeList.getmLijstId(), Integer.toString(filmExtra.getmId()));
                 Toast.makeText(getApplicationContext(), "Film Added", Toast.LENGTH_SHORT).show();
             }
         });
 
+        mClosePopup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopUpExtra.dismiss();
+            }
+        });
 
         PopUpExtra.show();
     }
     public ArrayAdapter addItemsToListPopupListview(ArrayList<ExtraInfo> listItems) {
         for(ExtraInfo name : listItems) {
-            Array2.add(name.getmLijstnaam());
+            mAddToListArrayNames.add(name.getmLijstnaam());
         }
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this,R.layout.voeg_film_toe_popup, Array2);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this,R.layout.film_detail_toevoegen_aan_lijst, mAddToListArrayNames);
         return arrayAdapter;
     }
 
     @Override
+    public void onClick(View v) {
+        showpopup(v);
+    }
+
+    @Override
     public void processResult(ArrayList<ExtraInfo> movieLists) {
-        TempList = new ArrayList<>();
-        TempList = movieLists;
-        mLijsten.setAdapter(addItemsToListPopupListview(TempList));
+        mAddToListArray = new ArrayList<>();
+        mAddToListArray = movieLists;
+        mLijsten.setAdapter(addItemsToListPopupListview(mAddToListArray));
     }
 }

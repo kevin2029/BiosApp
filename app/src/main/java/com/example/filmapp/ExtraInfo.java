@@ -6,8 +6,6 @@ public abstract class ExtraInfo {
     public String mLijstBeschrijving;
 
 
-
-
     public ExtraInfo(String mLijstId, String mLijstnaam, String mLijstBeschrijving) {
         this.mLijstId = mLijstId;
         this.mLijstnaam = mLijstnaam;

@@ -33,7 +33,7 @@ public class FilmList extends AsyncTask<String, Void, List<Film>> {
         if (urls != null && urls.length > 0) {
             String url = urls[0];
             Log.i(TAG, "param url: " + url);
-            String response = NetworkUtils.doSendRequestToAPI(url, null);
+            String response = NetworkUtils.doSendRequestToAPI(url, "GET");
 
             try {
                 JSONObject jsonResponse = new JSONObject(response);
@@ -69,6 +69,7 @@ public class FilmList extends AsyncTask<String, Void, List<Film>> {
     protected void onPreExecute() {
         Log.i(TAG, "In onPreExecute");
     }
+
     @Override
     protected void onPostExecute(List<Film> films) {
         Log.i(TAG, "In onPostExecute");

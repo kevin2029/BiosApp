@@ -12,11 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.filmapp.TMDBCommands.toevoegen.TmdbMaakLijstAan;
-import com.example.filmapp.utils.ListTask;
+
 
 import java.util.List;
 
-public class CreateListActivity extends AppCompatActivity implements View.OnClickListener, ListTask.FilmListListener {
+public class CreateListActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText Title;
     private Button AddList;
     private EditText Beschrijving;
@@ -57,10 +57,6 @@ public class CreateListActivity extends AppCompatActivity implements View.OnClic
     }
 
 
-    @Override
-    public void processResult(List<String> films) {
-
-    }
 
 
 }

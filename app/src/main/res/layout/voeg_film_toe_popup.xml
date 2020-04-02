@@ -8,7 +8,15 @@
     android:padding="5dp"
     android:layout_gravity="center">
 
-
+    <TextView
+        android:id="@+id/tv_close_popup"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:text="X"
+        android:textStyle="bold"
+        android:layout_gravity="end"
+        android:gravity="center"
+        />
 
     <LinearLayout
         android:layout_marginTop="40dp"

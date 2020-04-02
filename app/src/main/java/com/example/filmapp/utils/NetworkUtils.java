@@ -42,12 +42,12 @@ public class NetworkUtils {
 
             // Initiëer de connectie en maak verbinding
             HttpURLConnection httpConnection = (HttpURLConnection) urlConnection;
-            httpConnection.setRequestProperty("content-type", "application/json;charset=utf-8");
-            httpConnection.setRequestProperty("authorization", "Bearer " + URL_LIST);
+//            httpConnection.setRequestProperty("content-type", "application/json;charset=utf-8");
+//            httpConnection.setRequestProperty("authorization", "Bearer " + URL_LIST);
             httpConnection.setAllowUserInteraction(false);
             httpConnection.setInstanceFollowRedirects(true);
             httpConnection.setRequestMethod("GET");
-            httpConnection.setDoOutput(true);
+            httpConnection.setDoOutput(BodyItem.equals("DELETE"));
             if (BodyItem != null) {
                 try {
                     OutputStream os = httpConnection.getOutputStream();
