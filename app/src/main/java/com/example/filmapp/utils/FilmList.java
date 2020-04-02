@@ -72,7 +72,7 @@ public class FilmList extends AsyncTask<String, Void, List<Film>> {
         filmListListener.processResult(films);
     }
 
-    public interface FilmListListener{
+    public interface FilmListListener {
         void processResult(List<Film> films);
     }
 }

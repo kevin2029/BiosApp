@@ -1,6 +1,7 @@
 package com.example.filmapp.Domain;
-import com.example.filmapp.Domain.ExtraInfo;
+
 import com.example.filmapp.utils.NetworkUtils;
+
 public class FLijstInfo extends ExtraInfo {
     public FLijstInfo(String mLijstId, String mLijstnaam, String mLijstBeschrijving) {
         super(mLijstId, mLijstnaam, mLijstBeschrijving);

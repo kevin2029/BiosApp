@@ -1,5 +1,7 @@
 package com.example.filmapp.Settings;
+
 import android.os.Bundle;
+
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.example.filmapp.R;

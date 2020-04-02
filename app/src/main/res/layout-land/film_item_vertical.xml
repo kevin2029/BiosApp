@@ -6,14 +6,14 @@
 
     <ImageView
         android:id="@+id/film_item_imageview"
-        android:layout_width="42dp"
-        android:layout_height="59dp"
+        android:layout_width="80dp"
+        android:layout_height="110dp"
         android:layout_margin="12dp"
         android:contentDescription="@string/picture" />
 
 
     <LinearLayout
-        android:layout_width="313dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:orientation="vertical">

@@ -10,12 +10,8 @@ import android.widget.RadioGroup;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import com.example.filmapp.R;
 import com.example.filmapp.TMDBCommands.toevoegen.TmdbMaakLijstAan;
-
-
-import java.util.List;
 
 public class CreateListActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText Title;
@@ -24,7 +20,6 @@ public class CreateListActivity extends AppCompatActivity implements View.OnClic
     private RadioGroup groep;
     private RadioButton nl;
     private RadioButton en;
-
 
 
     @Override
@@ -44,20 +39,17 @@ public class CreateListActivity extends AppCompatActivity implements View.OnClic
 
 
     @Override
-    public void onClick(View v){
+    public void onClick(View v) {
         TmdbMaakLijstAan Task = new TmdbMaakLijstAan();
         String LijstTaal = "en";
-        String Lijsttitel= Title.getText().toString();
+        String Lijsttitel = Title.getText().toString();
         String LijstBeschrijving = Beschrijving.getText().toString();
 
 
         Task.execute(Lijsttitel, LijstBeschrijving, LijstTaal);
 
 
-
     }
-
-
 
 
 }

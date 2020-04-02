@@ -2,7 +2,6 @@ package com.example.filmapp.Gui.Adapter;
 
 
 import android.content.Context;
-
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,15 +20,42 @@ import com.example.filmapp.Gui.Activity.FilmDetailActivity;
 import com.example.filmapp.R;
 import com.squareup.picasso.Picasso;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder> implements Filterable{
+public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder> implements Filterable {
     public static final String FILM = "film";
     private static String TAG = FilmAdapter.class.getSimpleName();
     private List<Film> fullFilmList;
     private List<Film> films;
+    private Filter filter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Film> filteredList = new ArrayList<>();
+
+            if (constraint == "" || constraint.length() == 0) {
+                filteredList.addAll(fullFilmList);
+            } else {
+                String searchInput = constraint.toString().toLowerCase().trim();
+
+                for (Film film : films) {
+                    if (film.getmTitle().toLowerCase().contains(searchInput)) {
+                        filteredList.add(film);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            films.clear();
+            films.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
 
     public FilmAdapter(List<Film> films) {
         Log.i(TAG, "In Constructor: FilmAdapter");
@@ -58,14 +84,14 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
 
     }
 
+    public List<Film> getFilms() {
+        return films;
+    }
+
     public void setFilms(List<Film> films) {
         this.films = films;
         this.fullFilmList = new ArrayList<>(films);
         notifyDataSetChanged();
-    }
-
-    public List<Film> getFilms() {
-        return films;
     }
 
     @Override
@@ -79,34 +105,6 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
         return filter;
     }
 
-    private Filter filter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            List<Film> filteredList = new ArrayList<>();
-
-            if (constraint == "" || constraint.length() == 0){
-                filteredList.addAll(fullFilmList);
-            }else {
-                String searchInput = constraint.toString().toLowerCase().trim();
-
-                for (Film film : films){
-                    if(film.getmTitle().toLowerCase().contains(searchInput)){
-                        filteredList.add(film);
-                    }
-                }
-            }
-            FilterResults results = new FilterResults();
-            results.values = filteredList;
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            films.clear();
-            films.addAll((List)results.values);
-            notifyDataSetChanged();
-        }
-    };
     public class FilmViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView title;
         private TextView releaseDate;
@@ -121,7 +119,6 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
             streepje = itemView.findViewById(R.id.test_test);
 
 
-
             itemView.setOnClickListener(this);
         }
 
@@ -132,7 +129,7 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
             Film film = films.get(adapterPosition);
 
             Intent intent = new Intent(view.getContext(), FilmDetailActivity.class);
-            intent.putExtra("film",film);
+            intent.putExtra("film", film);
             view.getContext().startActivity(intent);
 
         }

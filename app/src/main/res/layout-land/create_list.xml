@@ -23,19 +23,19 @@
     <RadioGroup
         android:id="@+id/Knop_groep"
         android:layout_width="match_parent"
-        android:layout_height="176dp"
+        android:layout_height="102dp"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/knop_nl"
             android:layout_width="100dp"
-            android:layout_height="281dp"
+            android:layout_height="155dp"
             android:text="The list is dutch" />
 
         <RadioButton
             android:id="@+id/knop_en"
             android:layout_width="100dp"
-            android:layout_height="283dp"
+            android:layout_height="155dp"
             android:text="The list is english" />
 
 

@@ -68,7 +68,8 @@ public class NetworkUtils {
             } else {
                 // Verbinding lukte, maar de server geeft een foutcode
                 Log.e(TAG, "Fout in responsCode: code = " + responseCode);
-                System.out.println(getStringFromInputStream(httpConnection.getErrorStream()));;
+                System.out.println(getStringFromInputStream(httpConnection.getErrorStream()));
+                ;
             }
         } catch (MalformedURLException e) {
             // De URL was niet correct geformuleerd.
@@ -108,9 +109,8 @@ public class NetworkUtils {
 
             InputStream inputStream = httpConnection.getInputStream();
             response = getStringFromInputStream(inputStream);
-        }
-        catch (Exception e) {
-            Log.i(TAG,"Error: " + e.getMessage());
+        } catch (Exception e) {
+            Log.i(TAG, "Error: " + e.getMessage());
         }
 
         return response;

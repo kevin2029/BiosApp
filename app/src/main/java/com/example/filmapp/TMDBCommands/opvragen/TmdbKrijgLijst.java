@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class TmdbKrijgLijst extends AsyncTask <String, String, ArrayList<ExtraInfo>> {
+public class TmdbKrijgLijst extends AsyncTask<String, String, ArrayList<ExtraInfo>> {
     private final String TAG = TmdbKrijgLijst.class.getSimpleName();
     private Listner ListListner;
 
@@ -25,13 +25,13 @@ public class TmdbKrijgLijst extends AsyncTask <String, String, ArrayList<ExtraIn
         ArrayList<ExtraInfo> temp = new ArrayList<>();
 
         try {
-            String JsonAntwoord = NetworkUtils.doSendRequestToAPI("https://api.themoviedb.org/3/account/" + NetworkUtils.Ac_ID + "/lists?api_key=" + NetworkUtils.API_Key + "&session_id=" + NetworkUtils.Session_ID + "&page=1","GET");
+            String JsonAntwoord = NetworkUtils.doSendRequestToAPI("https://api.themoviedb.org/3/account/" + NetworkUtils.Ac_ID + "/lists?api_key=" + NetworkUtils.API_Key + "&session_id=" + NetworkUtils.Session_ID + "&page=1", "GET");
             JSONObject JsonAntwoordLijsten = new JSONObject(JsonAntwoord);
 
             JSONArray FilmLijsten = JsonAntwoordLijsten.getJSONArray("results");
 
 
-            for (int i = 0; i <FilmLijsten.length(); i++){
+            for (int i = 0; i < FilmLijsten.length(); i++) {
                 JSONObject HuidigeLijstJSON = FilmLijsten.getJSONObject(i);
                 int iLijstId = HuidigeLijstJSON.getInt("id");
                 String ILijstNaam = HuidigeLijstJSON.getString("name");
@@ -40,7 +40,8 @@ public class TmdbKrijgLijst extends AsyncTask <String, String, ArrayList<ExtraIn
                 FLijstInfo FLijstInfo = new FLijstInfo("" + iLijstId, ILijstNaam, IlijstOmschrijving);
                 temp.add(FLijstInfo);
             }
-        }catch (Exception E){}
+        } catch (Exception E) {
+        }
 
         return temp;
     }

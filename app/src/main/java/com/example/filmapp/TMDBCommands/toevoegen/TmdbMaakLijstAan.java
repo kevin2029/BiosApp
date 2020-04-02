@@ -4,12 +4,9 @@ import android.os.AsyncTask;
 
 import com.example.filmapp.utils.NetworkUtils;
 
-
 import org.json.JSONObject;
 
 public class TmdbMaakLijstAan extends AsyncTask<String, String, String> {
-
-
 
 
     @Override
@@ -24,10 +21,10 @@ public class TmdbMaakLijstAan extends AsyncTask<String, String, String> {
             String jsonResponseString = NetworkUtils.doSendPostRequest(
                     "https://api.themoviedb.org/3/list?api_key=" + NetworkUtils.API_Key + "&session_id=" + NetworkUtils.Session_ID, Naam + Beschrijving + Taal);
             temp = new JSONObject(jsonResponseString).getString("status_message");
-        } catch (Exception e) {}
-       return temp;
+        } catch (Exception e) {
+        }
+        return temp;
     }
-
 
 
 }

@@ -56,12 +56,12 @@ public class Film implements Serializable {
         return mVoteAverage;
     }
 
-    public void setMVoteAverage(double newVoteAverage){
+    public void setMVoteAverage(double newVoteAverage) {
         this.mVoteAverage = newVoteAverage;
     }
 
-    public void setmVoteCount(){
-        this.mVoteCount ++;
+    public void setmVoteCount() {
+        this.mVoteCount++;
     }
 
 

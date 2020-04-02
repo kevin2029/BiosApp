@@ -5,9 +5,8 @@
     <item
         android:id="@+id/search"
         android:title="@string/search"
-        app:showAsAction="ifRoom"
         app:actionViewClass="android.widget.SearchView"
-        />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/settings"
@@ -28,9 +27,6 @@
         app:showAsAction="never"
 
         />
-
-
-
 
 
 </menu>

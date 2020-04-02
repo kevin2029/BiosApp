@@ -1,15 +1,13 @@
 package com.example.filmapp.utils;
 //test
+
 import android.os.AsyncTask;
 import android.util.Log;
-
-import com.example.filmapp.Domain.Film;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,13 +49,14 @@ public class GetListIdTask extends AsyncTask<String, Void, List<Integer>> {
     protected void onPreExecute() {
         Log.i(TAG, "In onPreExecute");
     }
+
     @Override
     protected void onPostExecute(List<Integer> strings) {
         Log.i(TAG, "In onPostExecute");
         filmListListener.processResultInts(strings);
     }
 
-    public interface FilmListListener{
+    public interface FilmListListener {
         void processResultInts(List<Integer> strings);
     }
 

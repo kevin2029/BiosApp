@@ -1,8 +1,5 @@
 package com.example.filmapp.Gui.Activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,9 +16,12 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.filmapp.Domain.Film;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.filmapp.Domain.ExtraInfo;
 import com.example.filmapp.Domain.FLijstInfo;
+import com.example.filmapp.Domain.Film;
 import com.example.filmapp.Gui.Adapter.FilmAdapter;
 import com.example.filmapp.R;
 import com.example.filmapp.TMDBCommands.opvragen.TmdbKrijgLijst;
@@ -33,7 +33,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class FilmDetailActivity extends AppCompatActivity implements View.OnClickListener,GetListIdTask.FilmListListener,TmdbKrijgLijst.Listner{
+public class FilmDetailActivity extends AppCompatActivity implements View.OnClickListener, GetListIdTask.FilmListListener, TmdbKrijgLijst.Listner {
+    public static final String TAG = FilmDetailActivity.class.getSimpleName();
     private TextView mTitle;
     private ImageView mImage;
     private TextView mDiscription;
@@ -44,15 +45,11 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
     private Button mAddto;
     private ArrayList<FLijstInfo> TempList;
     private ListView mLijsten;
-
     private Dialog PopUpExtra;
     private ArrayList<String> mAddToListArrayNames;
     private ArrayList<ExtraInfo> mAddToListArray;
     private ListView mChooseList;
     private TextView mClosePopup;
-
-
-    public static final String TAG = FilmDetailActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +61,7 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
         mDiscription = findViewById(R.id.film_detail_discription);
         mReleaseDate = findViewById(R.id.film_detail_releasedate);
         mReview = findViewById(R.id.film_detail_review);
-        mAddto=findViewById(R.id.film_detail_addtolist);
+        mAddto = findViewById(R.id.film_detail_addtolist);
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -106,9 +103,8 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
             mAddToListArrayNames = new ArrayList<>();
 
 
-
         }
-            }
+    }
 
     @Override
     public void processResultInts(List<Integer> strings) {
@@ -118,35 +114,35 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.share_menu,menu);
+        getMenuInflater().inflate(R.menu.share_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if (item.getItemId() == R.id.share_button ){
-                Log.i(TAG, "In onOptionsItemSelected door: " + item.toString());
+        if (item.getItemId() == R.id.share_button) {
+            Log.i(TAG, "In onOptionsItemSelected door: " + item.toString());
 
-                Intent myIntent = new Intent(Intent.ACTION_SEND);
-                myIntent.setType("text/plain");
-                String shareBody = "body";
-                String shareSubject = filmExtra.toString();
+            Intent myIntent = new Intent(Intent.ACTION_SEND);
+            myIntent.setType("text/plain");
+            String shareBody = "body";
+            String shareSubject = filmExtra.toString();
 
-                myIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
-                myIntent.putExtra(Intent.EXTRA_TEXT, shareSubject);
-                startActivity(Intent.createChooser(myIntent, "Share"));
+            myIntent.putExtra(Intent.EXTRA_TEXT, shareBody);
+            myIntent.putExtra(Intent.EXTRA_TEXT, shareSubject);
+            startActivity(Intent.createChooser(myIntent, "Share"));
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
-    public void showpopup(View v){
+
+    public void showpopup(View v) {
         PopUpExtra.setContentView(R.layout.voeg_film_toe_popup);
         mLijsten = PopUpExtra.findViewById(R.id.Kies_Lijst);
         mClosePopup = (TextView) PopUpExtra.findViewById(R.id.tv_close_popup);
@@ -157,7 +153,7 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
         mLijsten.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TmdbVoegFilmToeAanLijst VoegToe= new TmdbVoegFilmToeAanLijst();
+                TmdbVoegFilmToeAanLijst VoegToe = new TmdbVoegFilmToeAanLijst();
                 ExtraInfo TakeList = mAddToListArray.get(position);
                 VoegToe.execute(TakeList.getmLijstId(), Integer.toString(filmExtra.getmId()));
                 Toast.makeText(getApplicationContext(), "Film Added", Toast.LENGTH_SHORT).show();
@@ -173,12 +169,13 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
 
         PopUpExtra.show();
     }
+
     public ArrayAdapter addItemsToListPopupListview(ArrayList<ExtraInfo> listItems) {
-        for(ExtraInfo name : listItems) {
+        for (ExtraInfo name : listItems) {
             mAddToListArrayNames.add(name.getmLijstnaam());
         }
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this,R.layout.film_detail_toevoegen_aan_lijst, mAddToListArrayNames);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.film_detail_toevoegen_aan_lijst, mAddToListArrayNames);
         return arrayAdapter;
     }
 
