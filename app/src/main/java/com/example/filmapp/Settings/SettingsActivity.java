@@ -1,4 +1,4 @@
-package com.example.filmapp;
+package com.example.filmapp.Settings;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
+
+import com.example.filmapp.R;
 
 public class SettingsActivity extends AppCompatActivity {
 

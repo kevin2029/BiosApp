@@ -1,4 +1,4 @@
-package com.example.filmapp;
+package com.example.filmapp.Gui.Adapter;
 
 
 import android.content.Context;
@@ -17,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.filmapp.Domain.Film;
+import com.example.filmapp.Gui.Activity.FilmDetailActivity;
+import com.example.filmapp.R;
 import com.squareup.picasso.Picasso;
 
 
@@ -129,7 +131,7 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.FilmViewHolder
             int adapterPosition = getAdapterPosition();
             Film film = films.get(adapterPosition);
 
-            Intent intent = new Intent(view.getContext(),FilmDetailActivity.class);
+            Intent intent = new Intent(view.getContext(), FilmDetailActivity.class);
             intent.putExtra("film",film);
             view.getContext().startActivity(intent);
 

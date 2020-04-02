@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,10 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
 
 import com.example.filmapp.Domain.Film;
+import com.example.filmapp.Gui.Activity.CreateListActivity;
+import com.example.filmapp.Gui.Adapter.FilmAdapter;
+import com.example.filmapp.Settings.SettingsActivity;
+import com.example.filmapp.utils.FilmList;
 
 import java.util.ArrayList;
 import java.util.List;

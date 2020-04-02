@@ -2,5 +2,5 @@
     android:id="@+id/Settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:name="com.example.filmapp.SettingsFragment">
+    android:name="com.example.filmapp.Settings.SettingsFragment">
 </fragment>

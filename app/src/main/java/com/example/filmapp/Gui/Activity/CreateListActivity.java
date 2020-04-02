@@ -1,4 +1,4 @@
-package com.example.filmapp;
+package com.example.filmapp.Gui.Activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.example.filmapp.R;
 import com.example.filmapp.TMDBCommands.toevoegen.TmdbMaakLijstAan;
 
 

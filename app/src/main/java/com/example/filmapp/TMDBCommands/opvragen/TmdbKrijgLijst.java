@@ -3,8 +3,8 @@ package com.example.filmapp.TMDBCommands.opvragen;
 
 import android.os.AsyncTask;
 
-import com.example.filmapp.ExtraInfo;
-import com.example.filmapp.FLijstInfo;
+import com.example.filmapp.Domain.ExtraInfo;
+import com.example.filmapp.Domain.FLijstInfo;
 import com.example.filmapp.utils.NetworkUtils;
 
 import org.json.JSONArray;

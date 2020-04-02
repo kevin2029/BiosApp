@@ -1,4 +1,4 @@
-package com.example.filmapp;
+package com.example.filmapp.Gui.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +20,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.filmapp.Domain.Film;
+import com.example.filmapp.Domain.ExtraInfo;
+import com.example.filmapp.Domain.FLijstInfo;
+import com.example.filmapp.Gui.Adapter.FilmAdapter;
+import com.example.filmapp.R;
 import com.example.filmapp.TMDBCommands.opvragen.TmdbKrijgLijst;
 import com.example.filmapp.TMDBCommands.toevoegen.TmdbVoegFilmToeAanLijst;
 import com.example.filmapp.utils.GetListIdTask;

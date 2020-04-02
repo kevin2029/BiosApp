@@ -1,20 +1,16 @@
-package com.example.filmapp;
+package com.example.filmapp.utils;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.filmapp.Domain.Film;
-import com.example.filmapp.utils.NetworkUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.security.PrivateKey;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class FilmList extends AsyncTask<String, Void, List<Film>> {
     private static final String TAG = FilmList.class.getSimpleName();

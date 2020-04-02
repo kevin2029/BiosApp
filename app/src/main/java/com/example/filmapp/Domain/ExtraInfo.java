@@ -1,4 +1,4 @@
-package com.example.filmapp;
+package com.example.filmapp.Domain;
 
 public abstract class ExtraInfo {
     public String mLijstId;
