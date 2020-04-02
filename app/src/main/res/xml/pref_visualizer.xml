@@ -3,35 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <CheckBoxPreference
         android:defaultValue="true"
+        app:key="Kids"
         android:summaryOff="Hidden"
         android:summaryOn="Shown"
-        android:title="Action"
-        app:key="Action" />
+        android:title="Show Kids Movies"
+        />
 
     <CheckBoxPreference
         android:defaultValue="true"
+        app:key="18+"
         android:summaryOff="Hidden"
         android:summaryOn="Shown"
-        android:title="Comedy"
-        app:key="Comedy" />
+        android:title="Show Adult Movies"
+        />
 
     <CheckBoxPreference
         android:defaultValue="true"
+        app:key="English"
         android:summaryOff="Hidden"
         android:summaryOn="Shown"
-        android:title="Drama"
-        app:key="Drama" />
+        android:title="Show English Movies"
+        />
 
     <CheckBoxPreference
         android:defaultValue="true"
+        app:key="French"
         android:summaryOff="Hidden"
         android:summaryOn="Shown"
-        android:title="Fantasy"
-        app:key="Fantasy" />
+        android:title="Show French Movies"
+        />
     <CheckBoxPreference
         android:defaultValue="true"
+        app:key="German"
         android:summaryOff="Hidden"
         android:summaryOn="Shown"
-        android:title="Horror"
-        app:key="Horror" />
+        android:title="Show German Movies"
+        />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        app:key="Miss Languages"
+        android:summaryOff="Hidden"
+        android:summaryOn="Shown"
+        android:title="Show Misc Languages"
+        />
 </PreferenceScreen>

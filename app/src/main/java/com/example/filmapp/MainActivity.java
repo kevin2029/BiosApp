@@ -1,5 +1,10 @@
 package com.example.filmapp;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,22 +14,18 @@ import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.filmapp.Domain.Film;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements FilmList.FilmListListener {
-    public static final String TAG = MainActivity.class.getSimpleName();
-    public static final String URL_FILM_INFORMATIE = "https://api.themoviedb.org/3/movie/top_rated?api_key=0b76c837ee95664733e2cbe4a92c6b5d&language=en-US&page=1";
-    public static final String LIFECYCLE_CALLBACKS_TEXT_KEY = "callback";
     private FilmAdapter mFilmAdapter;
     private RecyclerView mRandomFilmssRecyclerView;
+
+    public static final String TAG = MainActivity.class.getSimpleName();
+    public static final String URL_FILM_INFORMATIE = "https://api.themoviedb.org/3/movie/top_rated?api_key=901b260c3b1f9ee0b91580adfcdb1c83&language=en-US&page=1";
+    public static final String LIFECYCLE_CALLBACKS_TEXT_KEY = "callback";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +95,19 @@ public class MainActivity extends AppCompatActivity implements FilmList.FilmList
             startActivity(startSettingActivity);
             return true;
         }
+
+        if (id == R.id.go_to_list){
+            Intent gotolistcreate = new Intent(this, CreateListActivity.class );
+          startActivity(gotolistcreate);
+          return true;
+
+        }
+
+        if (id == R.id.go_to_list_with_lists ){
+            Intent gotolists = new Intent(this, ListActivity.class);
+            startActivity(gotolists);
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }
