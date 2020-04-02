@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/give_name_list"
+        android:hint="Fill in the title here!"
+        >
+
+    </EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fill in the discription"
+        android:id="@+id/beschrijving_lijst"
+        />
+
+
+    <RadioGroup
+        android:id="@+id/Knop_groep"
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/knop_nl"
+            android:layout_width="100dp"
+            android:layout_height="281dp"
+            android:text="The list is dutch" />
+
+        <RadioButton
+            android:id="@+id/knop_en"
+            android:layout_width="100dp"
+            android:layout_height="283dp"
+            android:text="The list is english" />
+
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/button_add_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create the list!" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" If you have created the list please press the back button of you phone"
+        />
+
+</LinearLayout>

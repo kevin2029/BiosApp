@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FilmDetailActivity"
+    android:layout_marginLeft="5dp"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:id="@+id/film_detail_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello world"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/film_detail_image"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_margin="5dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/film_detail_discription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hello world" />
+
+    <TextView
+        android:id="@+id/film_detail_releasedate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical"
+        android:text="Hello world" />
+
+
+    <TextView
+        android:id="@+id/film_detail_review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="Hello world" />
+
+
+
+
+    <RatingBar
+        android:id="@+id/film_detail_ratebar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize=".5"
+        android:layout_alignParentBottom="true"/>
+
+
+    <Button
+        android:id="@+id/film_detail_ratebutton"
+        android:layout_width="100dp"
+        android:layout_height="54dp"
+        android:clickable="true"
+        android:text="SEND RATING" />
+
+    <Button
+        android:id="@+id/film_detail_addtolist"
+        android:layout_width="100dp"
+        android:layout_height="56dp"
+        android:clickable="true"
+        android:text="Add to list" />
+
+    <TextView
+        android:id="@+id/film_detail_ratetext"
+        android:layout_width="1000dp"
+        android:layout_height="50dp"
+
+        android:text="oude rating" />
+    <TextView
+        android:id="@+id/film_detail_newrate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="nieuwe rating"
+        />
+
+
+</LinearLayout>
+</ScrollView>
