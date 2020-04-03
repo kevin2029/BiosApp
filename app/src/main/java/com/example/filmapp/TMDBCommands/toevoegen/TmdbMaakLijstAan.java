@@ -8,7 +8,6 @@ import org.json.JSONObject;
 
 public class TmdbMaakLijstAan extends AsyncTask<String, String, String> {
 
-
     @Override
     protected String doInBackground(String... strings) {
         String Naam = "{\"name\": \"" + strings[0] + "\", ";

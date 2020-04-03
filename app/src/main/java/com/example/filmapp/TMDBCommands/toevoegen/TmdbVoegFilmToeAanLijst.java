@@ -9,10 +9,10 @@ import org.json.JSONObject;
 
 public class TmdbVoegFilmToeAanLijst extends AsyncTask<String, String, String> {
     @Override
-    protected String doInBackground(String... args) {
+    protected String doInBackground(String... params) {
         String temp = "Failed";
-        String listId = args[0];
-        int movieId = Integer.parseInt(args[1]);
+        String listId = params[0];
+        int movieId = Integer.parseInt(params[1]);
 
         try {
             String Jsonantwoord = NetworkUtils.doSendPostRequest(

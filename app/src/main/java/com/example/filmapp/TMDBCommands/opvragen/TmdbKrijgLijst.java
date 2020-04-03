@@ -13,7 +13,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class TmdbKrijgLijst extends AsyncTask<String, String, ArrayList<ExtraInfo>> {
-    private final String TAG = TmdbKrijgLijst.class.getSimpleName();
     private Listner ListListner;
 
     public TmdbKrijgLijst(Listner listListner) {
@@ -29,7 +28,6 @@ public class TmdbKrijgLijst extends AsyncTask<String, String, ArrayList<ExtraInf
             JSONObject JsonAntwoordLijsten = new JSONObject(JsonAntwoord);
 
             JSONArray FilmLijsten = JsonAntwoordLijsten.getJSONArray("results");
-
 
             for (int i = 0; i < FilmLijsten.length(); i++) {
                 JSONObject HuidigeLijstJSON = FilmLijsten.getJSONObject(i);

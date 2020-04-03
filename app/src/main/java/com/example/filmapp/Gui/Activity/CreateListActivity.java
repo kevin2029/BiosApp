@@ -44,11 +44,7 @@ public class CreateListActivity extends AppCompatActivity implements View.OnClic
         String LijstTaal = "en";
         String Lijsttitel = Title.getText().toString();
         String LijstBeschrijving = Beschrijving.getText().toString();
-
-
         Task.execute(Lijsttitel, LijstBeschrijving, LijstTaal);
-
-
     }
 
 

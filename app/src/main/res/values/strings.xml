@@ -3,4 +3,10 @@
     <string name="Settings">settings</string>
     <string name="picture">picture</string>
     <string name="search">Search</string>
+    <string name="Shown">Shown</string>
+    <string name="Hidden">Hidden</string>
+    <string name="share">Share</string>
+    <string name="create_a_list">Create A list</string>
+    <string name="go_to_lists">Go to lists</string>
+    <string name="x" translatable="false">X</string>
 </resources>

@@ -11,10 +11,7 @@ public abstract class ExtraInfo {
         this.mLijstnaam = mLijstnaam;
         this.mLijstBeschrijving = mLijstBeschrijving;
 
-
     }
-
-    public abstract String getQueryUrl();
 
     public String getmLijstId() {
         return mLijstId;
@@ -24,7 +21,4 @@ public abstract class ExtraInfo {
         return mLijstnaam;
     }
 
-    public String getmLijstBeschrijving() {
-        return mLijstBeschrijving;
-    }
 }

@@ -19,7 +19,6 @@
         android:layout_height="wrap_content"
         android:hint="Fill in the discription" />
 
-
     <RadioGroup
         android:id="@+id/Knop_groep"
         android:layout_width="match_parent"

@@ -14,13 +14,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.filmapp.Domain.ExtraInfo;
-import com.example.filmapp.Domain.FLijstInfo;
 import com.example.filmapp.Domain.Film;
 import com.example.filmapp.Gui.Adapter.FilmAdapter;
 import com.example.filmapp.R;
@@ -43,13 +41,12 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
     private Film filmExtra;
     private List<Integer> ids;
     private Button mAddto;
-    private ArrayList<FLijstInfo> TempList;
     private ListView mLijsten;
+
     private Dialog PopUpExtra;
-    private ArrayList<String> mAddToListArrayNames;
-    private ArrayList<ExtraInfo> mAddToListArray;
-    private ListView mChooseList;
-    private TextView mClosePopup;
+    private ArrayList<String> mAddtoList;
+    private ArrayList<ExtraInfo> mAddToExtraInfo;
+    private TextView mPopupClose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +97,7 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
             mAddto.setOnClickListener(this);
 
             PopUpExtra = new Dialog(this);
-            mAddToListArrayNames = new ArrayList<>();
+            mAddtoList = new ArrayList<>();
 
 
         }
@@ -120,7 +117,6 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
         if (item.getItemId() == R.id.share_button) {
             Log.i(TAG, "In onOptionsItemSelected door: " + item.toString());
 
@@ -145,7 +141,7 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
     public void showpopup(View v) {
         PopUpExtra.setContentView(R.layout.voeg_film_toe_popup);
         mLijsten = PopUpExtra.findViewById(R.id.Kies_Lijst);
-        mClosePopup = (TextView) PopUpExtra.findViewById(R.id.tv_close_popup);
+        mPopupClose = (TextView) PopUpExtra.findViewById(R.id.tv_close_popup);
 
         TmdbKrijgLijst krijglijst = new TmdbKrijgLijst(this);
         krijglijst.execute();
@@ -153,14 +149,13 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
         mLijsten.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TmdbVoegFilmToeAanLijst VoegToe = new TmdbVoegFilmToeAanLijst();
-                ExtraInfo TakeList = mAddToListArray.get(position);
-                VoegToe.execute(TakeList.getmLijstId(), Integer.toString(filmExtra.getmId()));
-                Toast.makeText(getApplicationContext(), "Film Added", Toast.LENGTH_SHORT).show();
+                TmdbVoegFilmToeAanLijst addTo = new TmdbVoegFilmToeAanLijst();
+                ExtraInfo extraInfo = mAddToExtraInfo.get(position);
+                addTo.execute(extraInfo.getmLijstId(), Integer.toString(filmExtra.getmId()));
             }
         });
 
-        mClosePopup.setOnClickListener(new View.OnClickListener() {
+        mPopupClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PopUpExtra.dismiss();
@@ -172,10 +167,10 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
 
     public ArrayAdapter addItemsToListPopupListview(ArrayList<ExtraInfo> listItems) {
         for (ExtraInfo name : listItems) {
-            mAddToListArrayNames.add(name.getmLijstnaam());
+            mAddtoList.add(name.getmLijstnaam());
         }
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.film_detail_toevoegen_aan_lijst, mAddToListArrayNames);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.film_detail_toevoegen_aan_lijst, mAddtoList);
         return arrayAdapter;
     }
 
@@ -185,9 +180,9 @@ public class FilmDetailActivity extends AppCompatActivity implements View.OnClic
     }
 
     @Override
-    public void processResult(ArrayList<ExtraInfo> movieLists) {
-        mAddToListArray = new ArrayList<>();
-        mAddToListArray = movieLists;
-        mLijsten.setAdapter(addItemsToListPopupListview(mAddToListArray));
+    public void processResult(ArrayList<ExtraInfo> extraInfos) {
+        mAddToExtraInfo = new ArrayList<>();
+        mAddToExtraInfo = extraInfos;
+        mLijsten.setAdapter(addItemsToListPopupListview(mAddToExtraInfo));
     }
 }

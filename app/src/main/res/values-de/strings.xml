@@ -5,4 +5,8 @@
     <string name="picture">Foto</string>
     <string name="search">Suchen</string>
     <string name="share">Teilen</string>
+    <string name="Shown">Gezeigt</string>
+    <string name="Hidden">Versteckt</string>
+    <string name="create_a_list">Erstelle ein Liste</string>
+    <string name="go_to_lists">Gehen zu Listen</string>
 </resources>

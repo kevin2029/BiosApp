@@ -16,14 +16,14 @@
     <item
         android:id="@+id/go_to_list"
         android:orderInCategory="100"
-        android:title="Create A list!"
+        android:title="@string/create_a_list"
         app:showAsAction="never"
 
         />
     <item
         android:id="@+id/go_to_list_with_lists"
         android:orderInCategory="100"
-        android:title="Go to lists!"
+        android:title="@string/go_to_lists"
         app:showAsAction="never"
 
         />
